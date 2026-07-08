@@ -49,6 +49,28 @@ A modern e-commerce application built with Java 21, Spring Boot 3, Angular 22, P
 - Orders
 - Admin Dashboard
 
+## Run with Docker
+
+```bash
+docker compose up -d
+```
+
+pgAdmin
+
+http://localhost:5050
+
+Database
+
+Host: postgres
+
+Port: 5432
+
+Database: simpleshop
+
+User: postgres
+
+Password: postgres
+
 ## Project Status
 
 🚧 In Development

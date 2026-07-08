@@ -1,0 +1,73 @@
+version: "3.9"
+
+services:
+
+  postgres:
+    image: postgres:17
+    container_name: simpleshop-postgres
+
+    environment:
+      POSTGRES_DB: simpleshop
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+
+    ports:
+      - "5432:5432"
+
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+
+    restart: unless-stopped
+
+  pgadmin:
+    image: dpage/pgadmin4
+
+    container_name: simpleshop-pgadmin
+
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@simpleshop.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+
+    ports:
+      - "5050:80"
+
+    depends_on:
+      - postgres
+
+    restart: unless-stopped
+
+  backend:
+    build:
+      context: ./backend
+
+    container_name: simpleshop-backend
+
+    volumes:
+      - ./backend:/app
+
+    working_dir: /app
+
+    stdin_open: true
+
+    tty: true
+
+    depends_on:
+      - postgres
+
+  frontend:
+    build:
+      context: ./frontend
+
+    container_name: simpleshop-frontend
+
+    volumes:
+      - ./frontend:/app
+
+    working_dir: /app
+
+    stdin_open: true
+
+    tty: true
+
+volumes:
+  postgres-data:

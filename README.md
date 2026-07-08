@@ -38,6 +38,17 @@ A modern e-commerce application built with Java 21, Spring Boot 3, Angular 22, P
 
 ---
 
+## Roadmap
+
+- Project Setup
+- Product Catalog
+- Product Details
+- Search
+- Shopping Cart
+- Authentication
+- Orders
+- Admin Dashboard
+
 ## Project Status
 
 🚧 In Development

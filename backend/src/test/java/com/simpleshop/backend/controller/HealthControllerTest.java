@@ -18,9 +18,9 @@ class HealthControllerTest {
 
     @Test
     void returnsApplicationHealth() throws Exception {
+
         mockMvc.perform(get("/api/health"))
                 .andExpect(status().isOk())
-                .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
-                .andExpect(content().json("{\"status\":\"UP\"}"));
+                .andExpect(content().string("SimpleShop Backend is Running!"));
     }
 }

@@ -81,9 +81,82 @@ A modern e-commerce application built with Java 21, Spring Boot 3, Angular 22, P
 
 ## Run with Docker
 
+From the project root:
+
 ```bash
-docker compose up -d
+docker compose up --build
 ```
+
+Backend:
+
+- http://localhost:8080
+
+---
+
+### Run Locally
+
+Start the PostgreSQL database first:
+
+```bash
+docker compose up -d postgres
+```
+
+Navigate to the backend project:
+
+```bash
+cd backend
+```
+
+Run the application:
+
+**Windows**
+
+```bash
+mvnw.cmd spring-boot:run
+```
+
+**Linux/macOS**
+
+```bash
+./mvnw spring-boot:run
+```
+
+---
+
+### Build
+
+**Windows**
+
+```bash
+mvnw.cmd clean package -DskipTests
+```
+
+**Linux/macOS**
+
+```bash
+./mvnw clean package -DskipTests
+```
+
+---
+
+### Health Endpoints
+
+Application Health
+
+- http://localhost:8080/api/health
+
+Spring Boot Actuator
+
+- http://localhost:8080/actuator
+- http://localhost:8080/actuator/health
+
+Expected response:
+
+```text
+SimpleShop Backend is Running!
+```
+
+---
 
 ### Services
 
